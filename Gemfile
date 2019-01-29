@@ -33,10 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'jquery-rails'
 gem 'bootstrap', '~> 4.2.1'
 gem 'flag-icons-rails'
 gem 'font-awesome-rails'
-
 gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb

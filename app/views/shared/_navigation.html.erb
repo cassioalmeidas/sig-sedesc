@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <%= link_to "SIG-SEDESC", root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Principal <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <% if current_usuario %>
+      <ul class="navbar-nav mr-5">
+        <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Meu usuário
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+            <%= link_to 'Mudar senha', '#', class: 'dropdown-item'  %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sair do sistema', destroy_usuario_session_path, method: :delete, class: 'dropdown-item'  %>
+          </div>
+        </li>
+      </ul>      
+    <% end %>
+  </div>
+</nav>  
