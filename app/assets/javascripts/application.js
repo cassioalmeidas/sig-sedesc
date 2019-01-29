@@ -14,5 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= require localization
+//= require i18n
+//= require i18n/translations
+//= require datatables
 //= require bootstrap-sprockets
 //= require_tree .

@@ -5,6 +5,10 @@ class Almoxarifado::MateriaisController < ApplicationController
   # GET /almoxarifado/materiais.json
   def index
     @almoxarifado_materiais = Almoxarifado::Material.all
+    respond_to do |format|
+      format.html 
+      format.json { render json: Almoxarifado::MaterialDatatable.new(params) }
+    end
   end
 
   # GET /almoxarifado/materiais/1
