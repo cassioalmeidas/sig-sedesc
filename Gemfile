@@ -38,6 +38,7 @@ gem 'bootstrap', '~> 4.2.1'
 gem 'flag-icons-rails'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'devise-i18n'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
