@@ -1,0 +1,2 @@
+module Almoxarifado::MateriaisHelper
+end

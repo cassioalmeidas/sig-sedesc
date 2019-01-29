@@ -1,0 +1,2 @@
+module Almoxarifado::EntradasHelper
+end

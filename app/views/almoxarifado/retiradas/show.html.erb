@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Almoxarifado materiais:</strong>
+  <%= @almoxarifado_retirada.almoxarifado_materiais %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @almoxarifado_retirada.quantidade %>
+</p>
+
+<%= link_to 'Edit', edit_almoxarifado_retirada_path(@almoxarifado_retirada) %> |
+<%= link_to 'Back', almoxarifado_retiradas_path %>

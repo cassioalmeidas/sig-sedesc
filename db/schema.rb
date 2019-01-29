@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_182913) do
+ActiveRecord::Schema.define(version: 2019_01_29_131103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "almoxarifado_entradas", force: :cascade do |t|
+    t.bigint "almoxarifado_materiais_id"
+    t.integer "quantidade", null: false
+    t.bigint "numero_empenho"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["almoxarifado_materiais_id"], name: "index_almoxarifado_entradas_on_almoxarifado_materiais_id"
+  end
+
+  create_table "almoxarifado_materiais", force: :cascade do |t|
+    t.string "descricao", null: false
+    t.integer "quantidade", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "almoxarifado_retiradas", force: :cascade do |t|
+    t.bigint "almoxarifado_materiais_id"
+    t.integer "quantidade", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["almoxarifado_materiais_id"], name: "index_almoxarifado_retiradas_on_almoxarifado_materiais_id"
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,4 +60,6 @@ ActiveRecord::Schema.define(version: 2019_01_28_182913) do
     t.index ["unlock_token"], name: "index_usuarios_on_unlock_token", unique: true
   end
 
+  add_foreign_key "almoxarifado_entradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
+  add_foreign_key "almoxarifado_retiradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
 end

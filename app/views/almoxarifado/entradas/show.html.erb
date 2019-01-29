@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Almoxarifado materiais:</strong>
+  <%= @almoxarifado_entrada.almoxarifado_materiais %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @almoxarifado_entrada.quantidade %>
+</p>
+
+<p>
+  <strong>Numero empenho:</strong>
+  <%= @almoxarifado_entrada.numero_empenho %>
+</p>
+
+<%= link_to 'Edit', edit_almoxarifado_entrada_path(@almoxarifado_entrada) %> |
+<%= link_to 'Back', almoxarifado_entradas_path %>

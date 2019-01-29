@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  almoxarifado_materiais: one
+  quantidade: 1
+  numero_empenho: 
+
+two:
+  almoxarifado_materiais: two
+  quantidade: 1
+  numero_empenho: 

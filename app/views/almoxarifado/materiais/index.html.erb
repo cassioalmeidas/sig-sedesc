@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Almoxarifado Materiais</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @almoxarifado_materiais.each do |almoxarifado_material| %>
+      <tr>
+        <td><%= almoxarifado_material.descricao %></td>
+        <td><%= link_to 'Show', almoxarifado_material %></td>
+        <td><%= link_to 'Edit', edit_almoxarifado_material_path(almoxarifado_material) %></td>
+        <td><%= link_to 'Destroy', almoxarifado_material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Almoxarifado Material', new_almoxarifado_material_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Almoxarifado Entradas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Almoxarifado materiais</th>
+      <th>Quantidade</th>
+      <th>Numero empenho</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @almoxarifado_entradas.each do |almoxarifado_entrada| %>
+      <tr>
+        <td><%= almoxarifado_entrada.almoxarifado_materiais %></td>
+        <td><%= almoxarifado_entrada.quantidade %></td>
+        <td><%= almoxarifado_entrada.numero_empenho %></td>
+        <td><%= link_to 'Show', almoxarifado_entrada %></td>
+        <td><%= link_to 'Edit', edit_almoxarifado_entrada_path(almoxarifado_entrada) %></td>
+        <td><%= link_to 'Destroy', almoxarifado_entrada, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Almoxarifado Entrada', new_almoxarifado_entrada_path %>

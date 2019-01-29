@@ -1,0 +1,2 @@
+module Almoxarifado::RetiradasHelper
+end

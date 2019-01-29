@@ -1,0 +1,32 @@
+<%= form_with(model: almoxarifado_entrada, local: true) do |form| %>
+  <% if almoxarifado_entrada.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(almoxarifado_entrada.errors.count, "error") %> prohibited this almoxarifado_entrada from being saved:</h2>
+
+      <ul>
+      <% almoxarifado_entrada.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :almoxarifado_materiais_id %>
+    <%= form.text_field :almoxarifado_materiais_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantidade %>
+    <%= form.number_field :quantidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_empenho %>
+    <%= form.text_field :numero_empenho %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
