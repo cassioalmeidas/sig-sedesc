@@ -7,7 +7,8 @@ $(document).on 'turbolinks:load', ->
     pagingType: 'full_numbers'
     columns: [
       { data: 'descricao' },
-      { data: 'quantidade' }
+      { data: 'quantidade' },
+      { data: 'acoes' }
     ]
     language: I18n.t('datatables')
   return

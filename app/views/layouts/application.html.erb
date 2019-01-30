@@ -14,31 +14,14 @@
     <%= flash_messages %>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-lg-9">        
+        <div class="col-lg-12">        
           <div class="card">
             <%= content_tag(:div, content_tag(:h3, yield(:title), class: 'card-title'), class: 'card-header') if content_for?(:title) %>
             <div class="card-body">
               <%= yield %>
             </div>
           </div>
-          
         </div>
-        <div class="col-lg-3">
-          <div class="card bg-light">
-            <div class="card-header">
-              <h3 class="card-title">Recursos</h3>
-            </div>
-            <div class="card-body">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <%= link_to usuarios_path, :class => 'btn btn-default btn-md' do  %>
-                    <%= fa_icon 'users', text: 'Usuários' %>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-          </div><!--/.card -->
-        </div><!--/span-->
       </div><!--/row-->
     </main> <!-- /.container -->
     <footer class="footer" align="center">

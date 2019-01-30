@@ -6,7 +6,8 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
     @view_columns ||= {
       # id: { source: "User.id", cond: :eq },
       descricao: { source: "Almoxarifado::Material.descricao", cond: :like },
-      quantidade: { source: "Almoxarifado::Material.quantidade", cond: :eq, searchable: false }
+      quantidade: { source: "Almoxarifado::Material.quantidade", cond: :eq, searchable: false },
+      acoes: { source: "acoes", orderable: false, searchable: false }
     }
   end
 
@@ -16,7 +17,8 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
         # example:
         # id: record.id,
         descricao: record.descricao,
-        quantidade: record.quantidade
+        quantidade: record.quantidade,
+        acoes: record.decorate.acoes
       }
     end
   end
