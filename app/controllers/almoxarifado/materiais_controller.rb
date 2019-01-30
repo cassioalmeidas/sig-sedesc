@@ -5,6 +5,8 @@ class Almoxarifado::MateriaisController < ApplicationController
   # GET /almoxarifado/materiais.json
   def index
     @almoxarifado_materiais = Almoxarifado::Material.all
+    @almoxarifado_entrada = Almoxarifado::Entrada.new
+    @almoxarifado_retirada = Almoxarifado::Retirada.new
     respond_to do |format|
       format.html 
       format.json { render json: Almoxarifado::MaterialDatatable.new(params) }
@@ -19,6 +21,11 @@ class Almoxarifado::MateriaisController < ApplicationController
   # GET /almoxarifado/materiais/new
   def new
     @almoxarifado_material = Almoxarifado::Material.new
+
+    respond_to do |format|
+      format.html 
+      format.js
+    end
   end
 
   # GET /almoxarifado/materiais/1/edit
@@ -73,6 +80,6 @@ class Almoxarifado::MateriaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def almoxarifado_material_params
-      params.require(:almoxarifado_material).permit(:descricao)
+      params.require(:almoxarifado_material).permit(:descricao, :material_id)
     end
 end

@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
 //= require jquery3
+//= require turbolinks
+//= require activestorage
 //= require localization
 //= require i18n
 //= require i18n/translations

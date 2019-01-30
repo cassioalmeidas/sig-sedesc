@@ -44,6 +44,8 @@ gem 'ajax-datatables-rails', github: 'jbox-web/ajax-datatables-rails'
 gem 'draper'
 gem 'i18n-js'
 
+gem 'rails-i18n'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

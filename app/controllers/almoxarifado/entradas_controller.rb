@@ -15,6 +15,7 @@ class Almoxarifado::EntradasController < ApplicationController
   # GET /almoxarifado/entradas/new
   def new
     @almoxarifado_entrada = Almoxarifado::Entrada.new
+    @almoxarifado_material = Almoxarifado::Material.find(params[:almoxarifado_materiais_id])
   end
 
   # GET /almoxarifado/entradas/1/edit
@@ -25,14 +26,14 @@ class Almoxarifado::EntradasController < ApplicationController
   # POST /almoxarifado/entradas.json
   def create
     @almoxarifado_entrada = Almoxarifado::Entrada.new(almoxarifado_entrada_params)
-
     respond_to do |format|
       if @almoxarifado_entrada.save
-        format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada was successfully created.' }
+        format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada criada com sucesso.' }
         format.json { render :show, status: :created, location: @almoxarifado_entrada }
+        format.js
       else
-        format.html { render :new }
-        format.json { render json: @almoxarifado_entrada.errors, status: :unprocessable_entity }
+        @almoxarifado_material = Almoxarifado::Material.find(params["almoxarifado_entrada"]["almoxarifado_materiais_id"])
+        format.js { render :new }
       end
     end
   end

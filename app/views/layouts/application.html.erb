@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body data-locale="<%= I18n.locale %>" data-default-locale="<%= I18n.default_locale %>">
+    <div id="modal-holder"></div>  
     <%= render 'shared/navigation' %>
     <%= flash_messages %>
     <main role="main" class="container">

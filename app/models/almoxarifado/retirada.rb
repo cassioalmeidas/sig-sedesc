@@ -1,5 +1,5 @@
 class Almoxarifado::Retirada < ApplicationRecord
-  belongs_to :almoxarifado_materiais
+  belongs_to :almoxarifado_materiais, class_name: 'Almoxarifado::Material'
 
   validates :almoxarifado_materiais_id, :quantidade, presence: true
 
