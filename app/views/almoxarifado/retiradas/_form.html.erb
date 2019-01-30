@@ -1,7 +1,7 @@
 <%= form_with(model: almoxarifado_retirada) do |form| %>
   <% if almoxarifado_retirada.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(almoxarifado_retirada.errors.count, "error") %> prohibited this retirada from being saved:</h2>
+      <h2><%= pluralize(almoxarifado_retirada.errors.count, "error") %> impediram que essa retirada fosse realizada: </h2>
 
       <ul>
       <% almoxarifado_retirada.errors.full_messages.each do |message| %>
@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :almoxarifado_materiais_id %>
-    <%= form.text_field :almoxarifado_materiais_id %>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= form.hidden_field :almoxarifado_materiais_id, value: @almoxarifado_material.id %>
+      <%= form.label :quantidade, class: 'col-form-label' %>
+      <%= form.number_field :quantidade, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quantidade %>
-    <%= form.number_field :quantidade %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="modal-footer">
+    <%= form.submit "Salvar", class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
   </div>
 <% end %>

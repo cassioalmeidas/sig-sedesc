@@ -1,7 +1,7 @@
 <%= form_with(model: almoxarifado_entrada) do |form| %>
   <% if almoxarifado_entrada.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(almoxarifado_entrada.errors.count, "error") %> impediram que essa entrada fosse realizada.</h2>
+      <h2><%= pluralize(almoxarifado_entrada.errors.count, "error") %> impediram que essa entrada fosse realizada: </h2>
 
       <ul>
       <% almoxarifado_entrada.errors.full_messages.each do |message| %>

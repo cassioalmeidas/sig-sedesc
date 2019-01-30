@@ -15,6 +15,7 @@ class Almoxarifado::RetiradasController < ApplicationController
   # GET /almoxarifado/retiradas/new
   def new
     @almoxarifado_retirada = Almoxarifado::Retirada.new
+    @almoxarifado_material = Almoxarifado::Material.find(params[:almoxarifado_materiais_id])
   end
 
   # GET /almoxarifado/retiradas/1/edit
@@ -28,11 +29,14 @@ class Almoxarifado::RetiradasController < ApplicationController
 
     respond_to do |format|
       if @almoxarifado_retirada.save
-        format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada was successfully created.' }
+        format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada realizada com sucesso.' }
         format.json { render :show, status: :created, location: @almoxarifado_retirada }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @almoxarifado_retirada.errors, status: :unprocessable_entity }
+        @almoxarifado_material = Almoxarifado::Material.find(params["almoxarifado_retirada"]["almoxarifado_materiais_id"])
+        format.js { render :new }
       end
     end
   end

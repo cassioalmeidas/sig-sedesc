@@ -16,7 +16,7 @@ class Almoxarifado::MaterialDecorator < Draper::Decorator
     links << link_to(new_almoxarifado_entrada_path(almoxarifado_materiais_id: object.id), class: 'btn btn-success btn-sm', remote: true,  data: { toggle: "modal", target: "#modal-entrada"}) do 
       fa_icon('arrow-circle-up', text: 'Entrada')
     end
-    links << link_to(new_almoxarifado_retirada_path(almoxarifado_materiais_id: object.id), class: 'btn btn-warning btn-sm') do 
+    links << link_to(new_almoxarifado_retirada_path(almoxarifado_materiais_id: object.id), class: 'btn btn-warning btn-sm', remote: true,  data: { toggle: "modal", target: "#modal-retirada"}) do 
       fa_icon('arrow-circle-down', text: 'Retirada')
     end
     links << link_to(edit_almoxarifado_material_path(object), class: 'btn btn-primary btn-sm') do 
