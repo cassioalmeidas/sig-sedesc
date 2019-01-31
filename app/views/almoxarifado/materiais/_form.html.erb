@@ -1,7 +1,7 @@
 <%= form_with(model: almoxarifado_material, local: true) do |form| %>
   <% if almoxarifado_material.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(almoxarifado_material.errors.count, "error") %> prohibited this almoxarifado_material from being saved:</h2>
+      <h2><%= pluralize(almoxarifado_material.errors.count, "error") %> impediu que o material fosse salvo:</h2>
 
       <ul>
       <% almoxarifado_material.errors.full_messages.each do |message| %>
@@ -11,12 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_field :descricao %>
+  <div class="form-group">
+    <%= form.label :descricao, class: "col-form-label" %>
+    <%= form.text_field :descricao, class: "form-control" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit "Salvar", class: 'btn btn-success' %>
 <% end %>

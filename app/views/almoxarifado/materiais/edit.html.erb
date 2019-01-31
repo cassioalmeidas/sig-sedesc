@@ -1,6 +1,9 @@
-<h1>Editing Almoxarifado Material</h1>
+<% content_for(:title) do %>
+	Almoxarifado Material - Editando
+<% end %>
 
 <%= render 'form', almoxarifado_material: @almoxarifado_material %>
 
-<%= link_to 'Show', @almoxarifado_material %> |
-<%= link_to 'Back', almoxarifado_materiais_path %>
+<% content_for(:card_footer) do %>
+	<%= link_to 'Voltar', almoxarifado_materiais_path, class: 'btn btn-secondary btn' %>
+<% end %>

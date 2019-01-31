@@ -14,4 +14,8 @@ class Almoxarifado::Material < ApplicationRecord
     errors.add(:base, 'Não foi possível remover materiais com entradas/retiradas cadastradas.')
   end
 
+
+  def to_s
+    descricao
+  end
 end

@@ -53,7 +53,7 @@ class Almoxarifado::MateriaisController < ApplicationController
   def update
     respond_to do |format|
       if @almoxarifado_material.update(almoxarifado_material_params)
-        format.html { redirect_to @almoxarifado_material, notice: 'Material was successfully updated.' }
+        format.html { redirect_to almoxarifado_materiais_path, notice: 'Material atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @almoxarifado_material }
       else
         format.html { render :edit }

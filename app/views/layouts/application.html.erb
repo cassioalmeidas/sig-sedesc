@@ -21,6 +21,11 @@
             <div class="card-body">
               <%= yield %>
             </div>
+            <% if content_for?(:card_footer) %>
+              <div class="card-footer">
+                <%= yield(:card_footer) %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div><!--/row-->
