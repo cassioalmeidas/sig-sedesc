@@ -5,6 +5,10 @@ class Almoxarifado::EntradasController < ApplicationController
   # GET /almoxarifado/entradas.json
   def index
     @almoxarifado_entradas = Almoxarifado::Entrada.all
+    respond_to do |format|
+      format.html
+      format.json { render json: Almoxarifado::EntradaDatatable.new(params) }
+    end
   end
 
   # GET /almoxarifado/entradas/1

@@ -13,4 +13,3 @@ $(document).on 'turbolinks:load', ->
       { data: 'acoes' }
     ]
     language: I18n.t('datatables')
-  return
