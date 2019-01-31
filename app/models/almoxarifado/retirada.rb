@@ -3,7 +3,7 @@ class Almoxarifado::Retirada < ApplicationRecord
   belongs_to :almoxarifado_materiais, class_name: 'Almoxarifado::Material'
   belongs_to :almoxarifado_setor, class_name: 'Almoxarifado::Setor'
 
-  validates :almoxarifado_materiais_id, :almoxarifado_setor_id, :quantidade, presence: true
+  validates :almoxarifado_materiais_id, :responsavel, :quantidade, presence: true
 
   validate :quantidade_suficiente_para_retirada?
 

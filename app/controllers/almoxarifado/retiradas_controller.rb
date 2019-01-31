@@ -73,6 +73,6 @@ class Almoxarifado::RetiradasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def almoxarifado_retirada_params
-      params.require(:almoxarifado_retirada).permit(:almoxarifado_materiais_id, :quantidade, :almoxarifado_setor_id)
+      params.require(:almoxarifado_retirada).permit(:almoxarifado_materiais_id, :quantidade, :almoxarifado_setor_id, :responsavel)
     end
 end
