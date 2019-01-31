@@ -22,9 +22,6 @@ class Almoxarifado::MaterialDecorator < Draper::Decorator
     links << link_to(edit_almoxarifado_material_path(object), class: 'btn btn-primary btn-sm') do 
       fa_icon('pencil-square-o', text: 'Editar')
     end
-    links << link_to(new_almoxarifado_material_path(almoxarifado_materiais_id: object.id), class: 'btn btn-outline-dark btn-sm') do 
-      fa_icon('fa-bar-chart', text: 'Relatório')
-    end
     links << link_to(almoxarifado_material_path(object), class: 'btn btn-danger btn-sm', data: { confirm: "Você tem certeza?" }, method: :delete) do 
       fa_icon('trash', text: 'Remover')
     end                
