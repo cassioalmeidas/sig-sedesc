@@ -39,7 +39,7 @@ class Almoxarifado::MateriaisController < ApplicationController
 
     respond_to do |format|
       if @almoxarifado_material.save
-        format.html { redirect_to @almoxarifado_material, notice: 'Material was successfully created.' }
+        format.html { redirect_to almoxarifado_materiais_path, notice: 'Material criado com sucesso.' }
         format.json { render :show, status: :created, location: @almoxarifado_material }
       else
         format.html { render :new }

@@ -1,5 +1,9 @@
-<h1>New Almoxarifado Material</h1>
+<% content_for(:title) do %>
+	Almoxarifado - Materiais - Cadastrar novo
+<% end %>
 
 <%= render 'form', almoxarifado_material: @almoxarifado_material %>
 
-<%= link_to 'Back', almoxarifado_materiais_path %>
+<% content_for(:card_footer) do %>
+	<%= link_to 'Voltar', almoxarifado_materiais_path, class: 'btn btn-secondary' %>
+<% end %>
