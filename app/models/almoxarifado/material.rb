@@ -1,4 +1,5 @@
 class Almoxarifado::Material < ApplicationRecord
+  audited
   validates :descricao, presence: true, uniqueness: true
   validates_numericality_of :quantidade, greater_than_or_equal_to: 0
 

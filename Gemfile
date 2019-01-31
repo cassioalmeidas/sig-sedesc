@@ -38,12 +38,14 @@ gem 'bootstrap', '~> 4.2.1'
 gem 'flag-icons-rails'
 gem 'font-awesome-rails'
 gem 'devise'
-gem 'devise-i18n'
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails', github: 'jbox-web/ajax-datatables-rails'
 gem 'draper'
-gem 'i18n-js'
 
+gem 'audited', '~> 4.7'
+
+gem 'devise-i18n'
+gem 'i18n-js'
 gem 'rails-i18n'
 
 # Reduces boot times through caching; required in config/boot.rb
