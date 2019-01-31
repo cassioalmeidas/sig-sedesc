@@ -67,7 +67,7 @@ class Almoxarifado::MateriaisController < ApplicationController
   def destroy
     @almoxarifado_material.destroy
     respond_to do |format|
-      format.html { redirect_to almoxarifado_materiais_url, notice: 'Material was successfully destroyed.' }
+      format.html { redirect_to almoxarifado_materiais_url, notice: 'Material excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
