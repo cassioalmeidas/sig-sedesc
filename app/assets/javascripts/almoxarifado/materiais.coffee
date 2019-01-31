@@ -8,6 +8,8 @@ $(document).on 'turbolinks:load', ->
     columns: [
       { data: 'descricao' },
       { data: 'quantidade' },
+      { data: 'entradas' },
+      { data: 'retiradas' },
       { data: 'acoes' }
     ]
     language: I18n.t('datatables')

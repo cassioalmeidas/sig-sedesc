@@ -4,10 +4,11 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
     @view_columns ||= {
-      # id: { source: "User.id", cond: :eq },
       descricao: { source: "Almoxarifado::Material.descricao", cond: :like },
       quantidade: { source: "Almoxarifado::Material.quantidade", cond: :eq, searchable: false },
-      acoes: { source: "acoes", orderable: false, searchable: false }
+      entradas: { source: "Almoxarifado::Material.entradas", cond: :eq, searchable: false, orderable: false },
+      retiradas: { source: "Almoxarifado::Material.retiradas", cond: :eq, searchable: false, orderable: false },
+      acoes: { source: "acoes", orderable: false, searchable: false, orderable: false }
     }
   end
 
@@ -18,6 +19,8 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
         # id: record.id,
         descricao: record.descricao,
         quantidade: record.quantidade,
+        entradas: record.entradas.count,
+        retiradas: record.retiradas.count,
         acoes: record.decorate.acoes
       }
     end
