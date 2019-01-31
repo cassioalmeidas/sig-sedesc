@@ -4,11 +4,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Principal <span class="sr-only">(current)</span></a>
+    <%= nav_bar do %>
+      <%= nav_link "Principal", root_path %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Almoxarifado
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'Gestão de materiais', almoxarifado_materiais_path, class: 'dropdown-item' %>
+          <%= dropdown_divider %>
+          <%= link_to 'Gestão de entradas', almoxarifado_entradas_path, class: 'dropdown-item' %>
+          <%= dropdown_divider %>
+          <%= link_to 'Gestão de retiradas', almoxarifado_retiradas_path, class: 'dropdown-item' %>
+          <%= dropdown_divider %>
+          <%= link_to 'Gestão de setores', almoxarifado_setores_path, class: 'dropdown-item' %>
+          <%= dropdown_divider %>
+          <%= link_to 'Relatórios', "#", class: 'dropdown-item' %>
+        </div>
       </li>
-    </ul>
+      <%= nav_link "Usuários", "#" %>
+    <% end %>
+
     <% if current_usuario %>
       <ul class="navbar-nav mr-5">
         <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
