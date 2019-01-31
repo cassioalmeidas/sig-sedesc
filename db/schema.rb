@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_050438) do
+ActiveRecord::Schema.define(version: 2019_01_31_054023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,15 @@ ActiveRecord::Schema.define(version: 2019_01_31_050438) do
     t.integer "quantidade", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "almoxarifado_setor_id"
     t.index ["almoxarifado_materiais_id"], name: "index_almoxarifado_retiradas_on_almoxarifado_materiais_id"
+    t.index ["almoxarifado_setor_id"], name: "index_almoxarifado_retiradas_on_almoxarifado_setor_id"
+  end
+
+  create_table "almoxarifado_setores", force: :cascade do |t|
+    t.string "descricao", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "audits", force: :cascade do |t|
@@ -84,4 +92,5 @@ ActiveRecord::Schema.define(version: 2019_01_31_050438) do
 
   add_foreign_key "almoxarifado_entradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
   add_foreign_key "almoxarifado_retiradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
+  add_foreign_key "almoxarifado_retiradas", "almoxarifado_setores"
 end

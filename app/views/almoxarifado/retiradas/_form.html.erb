@@ -13,6 +13,10 @@
 
   <div class="modal-body">
     <div class="form-group">
+      <%= form.label :setor, class: 'col-form-label' %>
+      <%= form.select :almoxarifado_setor_id, Almoxarifado::Setor.all.map { |s| [s.descricao, s.id]}, class: 'form-control', prompt: 'Selecione o setor' %>
+    </div>
+    <div class="form-group">
       <%= form.hidden_field :almoxarifado_materiais_id, value: @almoxarifado_material.id %>
       <%= form.label :quantidade, class: 'col-form-label' %>
       <%= form.number_field :quantidade, class: 'form-control' %>
