@@ -7,6 +7,7 @@ $(document).on 'turbolinks:load', ->
     columns: [
       { data: 'almoxarifado_materiais_descricao' },
       { data: 'quantidade' },
-      { data: 'numero_empenho' }
+      { data: 'numero_empenho' },
+      { data: 'data' }
     ]
     language: I18n.t('datatables')

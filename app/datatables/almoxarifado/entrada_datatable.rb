@@ -6,7 +6,8 @@ class Almoxarifado::EntradaDatatable < AjaxDatatablesRails::ActiveRecord
     @view_columns ||= {
       almoxarifado_materiais_descricao: { source: "Almoxarifado::Material.descricao", cond: :like },
       quantidade: { source: "Almoxarifado::Entrada.quantidade", cond: :eq, searchable: false },
-      numero_empenho: { source: "Almoxarifado::Entrada.numero_empenho", cond: :like }
+      numero_empenho: { source: "Almoxarifado::Entrada.numero_empenho", cond: :like },
+      data: { source: "Almoxarifado::Entrada.created_at", cond: :like }
     }
   end
 
@@ -16,7 +17,8 @@ class Almoxarifado::EntradaDatatable < AjaxDatatablesRails::ActiveRecord
         # example:
         almoxarifado_materiais_descricao: record.almoxarifado_materiais.descricao,
         quantidade: record.quantidade,
-        numero_empenho: record.numero_empenho || 'Não informado'
+        numero_empenho: record.numero_empenho || 'Não informado',
+        data: I18n.l(record.created_at, format: :long)
       }
     end
   end
