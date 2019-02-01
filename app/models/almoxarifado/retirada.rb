@@ -18,7 +18,7 @@ class Almoxarifado::Retirada < ApplicationRecord
   def quantidade_suficiente_para_retirada?
     return unless almoxarifado_materiais
     if (almoxarifado_materiais.quantidade.to_i - self.quantidade.to_i) < 0
-      errors.add(:base, "para a retirada permitida: #{almoxarifado_materiais.quantidade}")
+      errors.add(:quantidade, "máxima para a retirada permitida: #{almoxarifado_materiais.quantidade}")
     end
   end
 end
