@@ -1,0 +1,17 @@
+<% content_for(:title) do %>
+	Almoxarifado - Setores
+	<%= link_to 'Adicionar novo setor', new_almoxarifado_setor_path, class: 'btn btn-success float-right', remote: true %>
+<% end %>
+
+<table class="table table-hover" id="almoxarifado-setores-datatable" data-source="<%= almoxarifado_setores_path(format: :json) %>">
+  <thead>
+    <tr>
+      <th data-data="descricao">Descrição</th>
+      <th data-data="acoes">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<div id="modal-window"></div>

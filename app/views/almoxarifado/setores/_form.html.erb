@@ -1,0 +1,25 @@
+<%= form_with(model: almoxarifado_setor) do |form| %>
+  <% if almoxarifado_setor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(almoxarifado_setor.errors.count, "error") %> impediram que esse setor fosse realizada: </h2>
+
+      <ul>
+      <% almoxarifado_setor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="modal-body">
+    <div class="form-group">
+      <%= form.label :descricao, class: 'col-form-label' %>
+      <%= form.text_field :descricao, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <%= form.submit "Salvar", class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+  </div>
+<% end %>
