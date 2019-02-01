@@ -23,7 +23,7 @@ class Almoxarifado::EntradaDatatable < AjaxDatatablesRails::ActiveRecord
 
   def get_raw_records
     # insert query here
-    Almoxarifado::Entrada.joins(:almoxarifado_materiais)
+    Almoxarifado::Entrada.ordenado.joins(:almoxarifado_materiais)
   end
 
 end

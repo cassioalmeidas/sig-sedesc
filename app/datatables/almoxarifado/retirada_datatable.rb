@@ -25,7 +25,7 @@ class Almoxarifado::RetiradaDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    Almoxarifado::Retirada.joins(
+    Almoxarifado::Retirada.ordenado.joins(
       :almoxarifado_materiais,
       :almoxarifado_setor
     )

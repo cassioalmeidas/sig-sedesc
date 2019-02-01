@@ -8,7 +8,7 @@ class Almoxarifado::Material < ApplicationRecord
 
   before_destroy :checar_entradas_e_retiradas
 
-  scope :ordernado, -> { order :descricao }
+  scope :ordenado, -> { order created_at: :desc }
 
   def checar_entradas_e_retiradas
     return true if (entradas.count == 0 and retiradas.count == 0)

@@ -28,7 +28,7 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
 
   def get_raw_records
     # insert query here
-    Almoxarifado::Material.all
+    Almoxarifado::Material.ordenado
   end
 
 end
