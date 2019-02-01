@@ -1,3 +1,5 @@
-$("#modal-setor").modal("hide");
+$('#modal-setor').modal('hide');
+$("body").removeClass("#modal-setor");
+$('.modal-backdrop').remove();
 var setores_datatable = $('#almoxarifado-setores-datatable').DataTable()
 setores_datatable.ajax.reload();
