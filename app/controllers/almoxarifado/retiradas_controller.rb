@@ -1,10 +1,14 @@
 class Almoxarifado::RetiradasController < ApplicationController
-  before_action :set_almoxarifado_retirada, only: [:show, :edit, :update, :destroy]
+  before_action :set_almoxarifado_retirada, only: [:show, :edit, :update, :destroy, :comprovante]
 
   # GET /almoxarifado/retiradas
   # GET /almoxarifado/retiradas.json
   def index
     @almoxarifado_retiradas = Almoxarifado::Retirada.all
+    respond_to do |format|
+      format.html
+      format.json { render json: Almoxarifado::RetiradaDatatable.new(params) }
+    end
   end
 
   # GET /almoxarifado/retiradas/1
@@ -62,6 +66,18 @@ class Almoxarifado::RetiradasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to almoxarifado_retiradas_url, notice: 'Retirada was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def comprovante
+    respond_to do |format|
+      format.html
+      format.js
+      format.pdf do 
+        render pdf: "comprovante_#{@almoxarifado_retirada.id}",
+               template: 'almoxarifado/retiradas/comprovante.pdf.erb',
+               layout: 'pdf.html'
+      end
     end
   end
 

@@ -1,0 +1,28 @@
+<h3>Recibo de retirada - # <%= @almoxarifado_retirada.id %></h3>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Item</th>
+			<th>Quantidade</th>
+			<th>Setor</th>
+			<th>Hora</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @almoxarifado_retirada.almoxarifado_materiais %></td>
+			<td><%= @almoxarifado_retirada.quantidade %></td>
+			<td><%= @almoxarifado_retirada.almoxarifado_setor %></td>
+			<td><%= l @almoxarifado_retirada.created_at, format: :long %></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="assinatura">
+	<hr/>
+	<div class="responsavel">
+		<%= @almoxarifado_retirada.responsavel %>
+		<p>(Responsável)</p>
+	</div>
+</div>	

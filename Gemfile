@@ -43,6 +43,8 @@ gem 'ajax-datatables-rails', github: 'jbox-web/ajax-datatables-rails'
 gem 'draper'
 
 gem 'audited', '~> 4.7'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'devise-i18n'
 gem 'i18n-js'

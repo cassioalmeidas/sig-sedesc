@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :almoxarifado do
     resources :materiais
     resources :entradas
-    resources :retiradas
+    resources :retiradas do 
+      member { get :comprovante }
+    end
     resources :setores
   end  
 end

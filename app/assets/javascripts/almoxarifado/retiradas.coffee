@@ -1,3 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  $('#almoxarifado-retiradas-datatable').dataTable
+    processing: true
+    serverSide: true
+    ajax: $('#almoxarifado-retiradas-datatable').data('source')
+    pagingType: 'full_numbers'
+    columns: [
+      { data: 'almoxarifado_materiais_descricao' },
+      { data: 'quantidade' },
+      { data: 'almoxarifado_setor_descricao' },
+      { data: 'responsavel' },
+      { data: 'acoes' }
+    ]
+    language: I18n.t('datatables')
