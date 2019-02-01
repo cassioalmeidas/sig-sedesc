@@ -1,2 +1,5 @@
+$('#modal-entrada').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
 $("#modal-window").html("<%= j render('almoxarifado/entradas/form_modal') %>")
 $("#modal-entrada").modal();

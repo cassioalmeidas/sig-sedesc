@@ -1,2 +1,5 @@
+$('#modal-retirada').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
 $("#modal-window").html("<%= j render('almoxarifado/retiradas/form_modal') %>")
 $("#modal-retirada").modal();
