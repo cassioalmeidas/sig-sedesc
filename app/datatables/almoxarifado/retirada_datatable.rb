@@ -8,6 +8,7 @@ class Almoxarifado::RetiradaDatatable < AjaxDatatablesRails::ActiveRecord
       quantidade: { source: "Almoxarifado::Retirada.quantidade", cond: :eq, searchable: false },
       almoxarifado_setor_descricao: { source: "Almoxarifado::Setor.descricao", cond: :like },
       responsavel: { source: "Almoxarifado::Retirada.responsavel", cond: :like },
+      data: { source: "Almoxarifado::Retirada.created_at", cond: :eq },
       acoes: { source: "acoes", orderable: false, searchable: false }
     }
   end
@@ -19,6 +20,7 @@ class Almoxarifado::RetiradaDatatable < AjaxDatatablesRails::ActiveRecord
         quantidade: record.quantidade,
         almoxarifado_setor_descricao: record.almoxarifado_setor.descricao,
         responsavel: record.responsavel || 'Não informado',
+        data: I18n.l(record.created_at, format: :long),
         acoes: record.decorate.acoes
       }
     end

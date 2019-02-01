@@ -9,6 +9,7 @@ $(document).on 'turbolinks:load', ->
       { data: 'quantidade' },
       { data: 'almoxarifado_setor_descricao' },
       { data: 'responsavel' },
+      { data: 'data' },
       { data: 'acoes' }
     ]
     language: I18n.t('datatables')
