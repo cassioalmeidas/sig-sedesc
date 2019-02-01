@@ -1,32 +1,12 @@
-<%= form_with(model: almoxarifado_retirada) do |form| %>
-  <% if almoxarifado_retirada.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(almoxarifado_retirada.errors.count, "error") %> impediram que essa retirada fosse realizada: </h2>
-
-      <ul>
-      <% almoxarifado_retirada.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for(almoxarifado_retirada, remote: true) do |f| %>
   <div class="modal-body">
-    <div class="form-group">
-      <%= form.label :setor, class: 'col-form-label' %>
-      <%= form.select :almoxarifado_setor_id, Almoxarifado::Setor.all.map { |s| [s.descricao, s.id]}, class: 'form-control', prompt: 'Selecione o setor' %>
-    </div>
-    <div class="form-group">
-      <%= form.hidden_field :almoxarifado_materiais_id, value: @almoxarifado_material.id %>
-      <%= form.label :quantidade, class: 'col-form-label' %>
-      <%= form.number_field :quantidade, class: 'form-control' %>
-      <%= form.label :responsavel, class: 'col-form-label' %>
-      <%= form.text_field :responsavel, class: 'form-control' %>
-    </div>
+    <%= f.association :almoxarifado_setor, prompt: 'Selecione o setor', label: 'Setor' %>
+    <%= f.input :almoxarifado_materiais_id, as: :hidden, input_html: { value: @almoxarifado_material.id } %>
+    <%= f.input :quantidade, as: :integer %>
+    <%= f.input :responsavel %>
   </div>
-
   <div class="modal-footer">
-    <%= form.submit "Salvar", class: 'btn btn-primary' %>
+    <%= f.submit "Salvar", class: 'btn btn-primary' %>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
   </div>
 <% end %>
