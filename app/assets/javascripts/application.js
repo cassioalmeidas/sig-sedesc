@@ -19,4 +19,6 @@
 //= require i18n/translations
 //= require datatables
 //= require bootstrap-sprockets
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .

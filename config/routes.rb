@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       member { get :comprovante }
     end
     resources :setores
+    get 'relatorios', to: 'relatorios#index'
   end  
 end

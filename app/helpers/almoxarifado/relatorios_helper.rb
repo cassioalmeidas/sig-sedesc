@@ -1,0 +1,2 @@
+module Almoxarifado::RelatoriosHelper
+end
