@@ -8,7 +8,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <embed src="<%= comprovante_almoxarifado_retirada_path(@almoxarifado_retirada, format: :pdf) %>" frameborder="0" width="100%" height="400px">
+
+        <object data="<%= comprovante_almoxarifado_retirada_path(@almoxarifado_retirada, format: :pdf) %>" type="application/pdf" width="100%" height="500px">
+          <embed src="<%= comprovante_almoxarifado_retirada_path(@almoxarifado_retirada, format: :pdf) %>" type="application/pdf" frameborder="0" width="100%" height="500px">
+            <p>Seu navegador não suporta PDFs imbutidos na página. Por favor baixe o PDF aqui: <a href="<%= comprovante_almoxarifado_retirada_path(@almoxarifado_retirada, format: :pdf) %>">Baixar PDF</a>.</p>
+          </embed>
+        </object>
       </div>
     </div>
   </div>
