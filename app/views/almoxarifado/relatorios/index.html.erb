@@ -2,29 +2,21 @@
   Almoxarifado - Relatórios
 <% end %>
 
-<div class="card">
+<div class="card mb-5">
   <div class="card-body">
     <div class="card-title">
-      <h5>Materiais</h5>
-    </div>
-    <%= pie_chart @materiais %>  
-  </div>
-</div>  
-
-<div class="card">
-  <div class="card-body">
-    <div class="card-title">
-      <h5>Últimas retiradas/dia</h5>
-    </div>
-    <%= column_chart @retiradas %>  
-  </div>
-</div>  
-
-<div class="card mt-5">
-  <div class="card-body">
-    <div class="card-title">
-      <h5>Últimas entradas/dia</h5>
+      <h5>Últimas entradas por semana</h5>
     </div>
     <%= column_chart @entradas %>  
+  </div>
+</div>  
+
+
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">
+      <h5>Últimas retiradas por semana</h5>
+    </div>
+    <%= column_chart @retiradas %>  
   </div>
 </div>  
