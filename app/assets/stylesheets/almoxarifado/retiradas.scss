@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #embed-pdf{
-	background: transparent url(/assets/loading.gif) no-repeat center;
+	background: transparent image-url('loading.gif') no-repeat center;
   width: 100%;
   height: 400px;
 }
