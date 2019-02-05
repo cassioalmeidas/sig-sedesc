@@ -49,6 +49,7 @@ gem 'simple_form'
 gem 'groupdate'
 gem 'chartkick'
 gem 'toastr-rails'
+gem 'pundit'
 
 gem 'devise-i18n'
 gem 'i18n-js'
