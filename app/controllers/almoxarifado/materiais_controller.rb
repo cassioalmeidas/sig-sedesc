@@ -1,4 +1,4 @@
-class Almoxarifado::MateriaisController < ApplicationController
+class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   before_action :set_almoxarifado_material, only: [:show, :edit, :update, :destroy]
 
   # GET /almoxarifado/materiais

@@ -1,4 +1,4 @@
-class Almoxarifado::RetiradasController < ApplicationController
+class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   before_action :set_almoxarifado_retirada, only: [:show, :edit, :update, :destroy, :comprovante]
 
   # GET /almoxarifado/retiradas
@@ -14,6 +14,7 @@ class Almoxarifado::RetiradasController < ApplicationController
   # GET /almoxarifado/retiradas/1
   # GET /almoxarifado/retiradas/1.json
   def show
+    authorize @almoxarifado_retirada
   end
 
   # GET /almoxarifado/retiradas/new
@@ -50,7 +51,7 @@ class Almoxarifado::RetiradasController < ApplicationController
   def update
     respond_to do |format|
       if @almoxarifado_retirada.update(almoxarifado_retirada_params)
-        format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada was successfully updated.' }
+        format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @almoxarifado_retirada }
       else
         format.html { render :edit }
@@ -62,9 +63,10 @@ class Almoxarifado::RetiradasController < ApplicationController
   # DELETE /almoxarifado/retiradas/1
   # DELETE /almoxarifado/retiradas/1.json
   def destroy
+    authorize @almoxarifado_retirada
     @almoxarifado_retirada.destroy
     respond_to do |format|
-      format.html { redirect_to almoxarifado_retiradas_url, notice: 'Retirada was successfully destroyed.' }
+      format.html { redirect_to almoxarifado_retiradas_url, notice: 'Retirada removida com sucesso.' }
       format.json { head :no_content }
     end
   end

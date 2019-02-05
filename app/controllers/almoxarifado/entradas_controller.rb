@@ -1,4 +1,4 @@
-class Almoxarifado::EntradasController < ApplicationController
+class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   before_action :set_almoxarifado_entrada, only: [:show, :edit, :update, :destroy]
 
   # GET /almoxarifado/entradas

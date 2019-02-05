@@ -1,4 +1,4 @@
-class Almoxarifado::SetoresController < ApplicationController
+class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
   before_action :set_almoxarifado_setor, only: [:edit, :update, :destroy]
 
   def index

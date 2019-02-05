@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   before_action :authenticate_usuario!
+
+  rescue_from Pundit::NotAuthorizedError, with: :usuario_nao_autorizado
 
   layout :layout_by_resource
 
@@ -12,5 +15,10 @@ class ApplicationController < ActionController::Base
   private 
     def layout_by_resource
       devise_controller? ? 'devise' : 'application'
+    end
+
+    def usuario_nao_autorizado
+      flash[:alert] = "Você não está autorizado(a) a executar essa ação."
+      redirect_to(request.referrer || root_path)
     end
 end
