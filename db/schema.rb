@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_061454) do
+ActiveRecord::Schema.define(version: 2019_02_05_123001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,20 @@ ActiveRecord::Schema.define(version: 2019_01_31_061454) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+  create_table "papeis", force: :cascade do |t|
+    t.string "descricao"
+    t.string "nome", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "papel_usuarios", force: :cascade do |t|
+    t.bigint "papel_id"
+    t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -94,4 +108,6 @@ ActiveRecord::Schema.define(version: 2019_01_31_061454) do
   add_foreign_key "almoxarifado_entradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
   add_foreign_key "almoxarifado_retiradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
   add_foreign_key "almoxarifado_retiradas", "almoxarifado_setores"
+  add_foreign_key "papel_usuarios", "papeis"
+  add_foreign_key "papel_usuarios", "usuarios"
 end
