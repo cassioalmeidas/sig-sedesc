@@ -8,6 +8,7 @@ $(document).on 'turbolinks:load', ->
       { data: 'almoxarifado_materiais_descricao' },
       { data: 'quantidade' },
       { data: 'numero_empenho' },
-      { data: 'data' }
+      { data: 'data' },
+      { data: 'acoes' }
     ]
     language: I18n.t('datatables')

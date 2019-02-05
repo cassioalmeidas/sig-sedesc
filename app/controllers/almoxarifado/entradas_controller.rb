@@ -4,6 +4,7 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/entradas
   # GET /almoxarifado/entradas.json
   def index
+    # authorize Almoxarifado::Entrada
     @almoxarifado_entradas = Almoxarifado::Entrada.all
     respond_to do |format|
       format.html
@@ -45,6 +46,7 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # PATCH/PUT /almoxarifado/entradas/1
   # PATCH/PUT /almoxarifado/entradas/1.json
   def update
+    authorize @almoxarifado_entrada
     respond_to do |format|
       if @almoxarifado_entrada.update(almoxarifado_entrada_params)
         format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada was successfully updated.' }
@@ -59,9 +61,10 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # DELETE /almoxarifado/entradas/1
   # DELETE /almoxarifado/entradas/1.json
   def destroy
+    authorize @almoxarifado_entrada
     @almoxarifado_entrada.destroy
     respond_to do |format|
-      format.html { redirect_to almoxarifado_entradas_url, notice: 'Entrada was successfully destroyed.' }
+      format.html { redirect_to almoxarifado_entradas_url, notice: 'Entrada removida com sucesso.' }
       format.json { head :no_content }
     end
   end
