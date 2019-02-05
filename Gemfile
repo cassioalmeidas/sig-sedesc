@@ -48,6 +48,7 @@ gem 'wkhtmltopdf-binary'
 gem 'simple_form'
 gem 'groupdate'
 gem 'chartkick'
+gem 'toastr-rails'
 
 gem 'devise-i18n'
 gem 'i18n-js'

@@ -12,7 +12,14 @@
   <body data-locale="<%= I18n.locale %>" data-default-locale="<%= I18n.default_locale %>">
     <div id="modal-holder"></div>  
     <%= render 'shared/navigation' %>
-    <%= flash_messages %>
+    <% unless flash.empty? %>
+     <script type="text/javascript">
+          <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+         toastr['<%= type %>']('<%= f[1] %>');
+     <% end %>
+     </script>
+    <% end %>
     <main role="main" class="container">
       <div class="row">
         <div class="col-lg-12">        
