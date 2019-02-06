@@ -7,6 +7,7 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
     @almoxarifado_materiais = Almoxarifado::Material.all
     @almoxarifado_entrada = Almoxarifado::Entrada.new
     @almoxarifado_retirada = Almoxarifado::Retirada.new
+    authorize Almoxarifado::Material
     respond_to do |format|
       format.html 
       format.json { render json: Almoxarifado::MaterialDatatable.new(params) }
@@ -16,12 +17,13 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/materiais/1
   # GET /almoxarifado/materiais/1.json
   def show
+    authorize @almoxarifado_material
   end
 
   # GET /almoxarifado/materiais/new
   def new
     @almoxarifado_material = Almoxarifado::Material.new
-
+    authorize @almoxarifado_material
     respond_to do |format|
       format.html 
       format.js
@@ -36,7 +38,7 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   # POST /almoxarifado/materiais.json
   def create
     @almoxarifado_material = Almoxarifado::Material.new(almoxarifado_material_params)
-
+    authorize @almoxarifado_material
     respond_to do |format|
       if @almoxarifado_material.save
         format.html { redirect_to almoxarifado_materiais_path, notice: 'Material criado com sucesso.' }
@@ -51,6 +53,7 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   # PATCH/PUT /almoxarifado/materiais/1
   # PATCH/PUT /almoxarifado/materiais/1.json
   def update
+    authorize @almoxarifado_material
     respond_to do |format|
       if @almoxarifado_material.update(almoxarifado_material_params)
         format.html { redirect_to almoxarifado_materiais_path, notice: 'Material atualizado com sucesso.' }
@@ -65,6 +68,7 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   # DELETE /almoxarifado/materiais/1
   # DELETE /almoxarifado/materiais/1.json
   def destroy
+    authorize @almoxarifado_material
     @almoxarifado_material.destroy
     respond_to do |format|
       format.html { redirect_to almoxarifado_materiais_url, notice: 'Material excluído com sucesso.' }

@@ -1,4 +1,4 @@
-class Almoxarifado::RetiradaPolicy < Almoxarifado::BasePolicy
+class Almoxarifado::MaterialPolicy < Almoxarifado::BasePolicy
   class Scope < Scope
     def resolve
       scope.all

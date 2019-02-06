@@ -1,6 +1,8 @@
 <% content_for(:title) do %>
   Almoxarifado - Materiais
-  <%= link_to 'Adicionar material', new_almoxarifado_material_path, class: 'btn btn-info btn-lg float-right' %>
+  <% if policy(Almoxarifado::Material).new? %>
+    <%= link_to 'Adicionar material', new_almoxarifado_material_path, class: 'btn btn-info btn-lg float-right' %>
+  <% end -%>
 <% end %>
 
 <table class="table table-hover" id="almoxarifado-materiais-datatable" data-source="<%= almoxarifado_materiais_path(format: :json) %>">
