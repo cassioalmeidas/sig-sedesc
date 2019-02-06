@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_123001) do
+ActiveRecord::Schema.define(version: 2019_02_05_232929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,17 +71,13 @@ ActiveRecord::Schema.define(version: 2019_02_05_123001) do
   end
 
   create_table "papeis", force: :cascade do |t|
-    t.string "descricao"
-    t.string "nome", null: false
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "papel_usuarios", force: :cascade do |t|
-    t.bigint "papel_id"
-    t.bigint "usuario_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_papeis_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_papeis_on_resource_type_and_resource_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -105,9 +101,15 @@ ActiveRecord::Schema.define(version: 2019_02_05_123001) do
     t.index ["unlock_token"], name: "index_usuarios_on_unlock_token", unique: true
   end
 
+  create_table "usuarios_papeis", id: false, force: :cascade do |t|
+    t.bigint "usuario_id"
+    t.bigint "papel_id"
+    t.index ["papel_id"], name: "index_usuarios_papeis_on_papel_id"
+    t.index ["usuario_id", "papel_id"], name: "index_usuarios_papeis_on_usuario_id_and_papel_id"
+    t.index ["usuario_id"], name: "index_usuarios_papeis_on_usuario_id"
+  end
+
   add_foreign_key "almoxarifado_entradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
   add_foreign_key "almoxarifado_retiradas", "almoxarifado_materiais", column: "almoxarifado_materiais_id"
   add_foreign_key "almoxarifado_retiradas", "almoxarifado_setores"
-  add_foreign_key "papel_usuarios", "papeis"
-  add_foreign_key "papel_usuarios", "usuarios"
 end

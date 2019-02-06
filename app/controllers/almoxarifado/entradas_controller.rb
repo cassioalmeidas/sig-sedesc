@@ -4,7 +4,7 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/entradas
   # GET /almoxarifado/entradas.json
   def index
-    # authorize Almoxarifado::Entrada
+    authorize Almoxarifado::Entrada
     @almoxarifado_entradas = Almoxarifado::Entrada.all
     respond_to do |format|
       format.html

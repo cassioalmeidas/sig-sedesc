@@ -4,6 +4,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/retiradas
   # GET /almoxarifado/retiradas.json
   def index
+    authorize Almoxarifado::Entrada
     @almoxarifado_retiradas = Almoxarifado::Retirada.all
     respond_to do |format|
       format.html
@@ -49,6 +50,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   # PATCH/PUT /almoxarifado/retiradas/1
   # PATCH/PUT /almoxarifado/retiradas/1.json
   def update
+    authorize @almoxarifado_retirada
     respond_to do |format|
       if @almoxarifado_retirada.update(almoxarifado_retirada_params)
         format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada atualizada com sucesso.' }

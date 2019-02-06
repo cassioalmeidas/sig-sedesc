@@ -1,13 +1,19 @@
 class Almoxarifado::RetiradaPolicy < ApplicationPolicy
-	def update?
-    @usuario.papel? :admin
-  end
-
-  def destroy?
-    @usuario.papel? :admin
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 
   def index?
-    true
+    @usuario.has_any_role? :sysadmin, :admin, :visitante
+  end
+
+	def update?
+    @usuario.has_any_role? :sysadmin, :admin
+  end
+
+  def destroy?
+    @usuario.has_any_role? :sysadmin, :admin
   end
 end

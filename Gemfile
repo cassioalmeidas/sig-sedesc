@@ -50,6 +50,7 @@ gem 'groupdate'
 gem 'chartkick'
 gem 'toastr-rails'
 gem 'pundit'
+gem 'rolify'
 
 gem 'devise-i18n'
 gem 'i18n-js'

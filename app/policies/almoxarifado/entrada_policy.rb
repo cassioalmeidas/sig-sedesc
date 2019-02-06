@@ -5,15 +5,15 @@ class Almoxarifado::EntradaPolicy < ApplicationPolicy
     end
   end
 
-  def index
-  	true
+  def index?
+  	@usuario.has_any_role? :sysadmin, :admin, :visitante
   end
   
   def destroy?
-  	@usuario.papel? :admin
+  	@usuario.has_any_role? :sysadmin, :admin
   end
 
   def update?
-    @usuario.papel? :admin
+    @usuario.has_any_role? :sysadmin, :admin
   end
 end
