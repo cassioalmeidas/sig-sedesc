@@ -32,6 +32,7 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
 
   # GET /almoxarifado/materiais/1/edit
   def edit
+    authorize @almoxarifado_material
   end
 
   # POST /almoxarifado/materiais
