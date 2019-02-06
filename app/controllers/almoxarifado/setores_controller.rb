@@ -49,6 +49,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
       if @almoxarifado_setor.update(almoxarifado_setor_params)
         format.html { redirect_to almoxarifado_setores_path, notice: 'Setor atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @almoxarifado_setor }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @almoxarifado_setor.errors, status: :unprocessable_entity }

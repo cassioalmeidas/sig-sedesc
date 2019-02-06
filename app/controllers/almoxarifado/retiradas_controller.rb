@@ -27,6 +27,8 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
 
   # GET /almoxarifado/retiradas/1/edit
   def edit
+    authorize @almoxarifado_retirada
+    @almoxarifado_material = @almoxarifado_retirada.almoxarifado_materiais
   end
 
   # POST /almoxarifado/retiradas
@@ -56,6 +58,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
       if @almoxarifado_retirada.update(almoxarifado_retirada_params)
         format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @almoxarifado_retirada }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @almoxarifado_retirada.errors, status: :unprocessable_entity }

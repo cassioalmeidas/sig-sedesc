@@ -16,6 +16,11 @@ class Almoxarifado::RetiradaDecorator < ApplicationDecorator
     links << link_to(comprovante_almoxarifado_retirada_path(object), class: 'btn btn-warning btn-sm', remote: true,  data: { toggle: "modal", target: "#modal-entrada"}) do 
       fa_icon('file', text: 'Comprovante')
     end if policy(object).comprovante?
+
+    links << link_to(edit_almoxarifado_retirada_path(object), class: 'btn btn-primary btn-sm', remote: true, data: { toggle: "modal", target: "#modal-entrada" }) do 
+      fa_icon('pencil', text: 'Editar')
+    end if policy(object).edit?
+
     links << link_to(almoxarifado_retirada_path(object), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Certeza?" }) do 
       fa_icon('trash', text: 'Remover')
     end if policy(object).destroy?
