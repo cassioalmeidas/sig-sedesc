@@ -21,6 +21,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/retiradas/new
   def new
     @almoxarifado_retirada = Almoxarifado::Retirada.new
+    authorize @almoxarifado_retirada
     @almoxarifado_material = Almoxarifado::Material.find(params[:almoxarifado_materiais_id])
   end
 
@@ -32,7 +33,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   # POST /almoxarifado/retiradas.json
   def create
     @almoxarifado_retirada = Almoxarifado::Retirada.new(almoxarifado_retirada_params)
-
+    authorize @almoxarifado_retirada
     respond_to do |format|
       if @almoxarifado_retirada.save
         format.html { redirect_to @almoxarifado_retirada, notice: 'Retirada realizada com sucesso.' }
@@ -74,6 +75,7 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
   end
 
   def comprovante
+    authorize @almoxarifado_retirada
     respond_to do |format|
       format.html
       format.js
@@ -83,10 +85,6 @@ class Almoxarifado::RetiradasController < Almoxarifado::AlmoxarifadoController
                layout: 'pdf.html'
       end
     end
-  end
-
-  def relatorios
-            
   end
 
   private

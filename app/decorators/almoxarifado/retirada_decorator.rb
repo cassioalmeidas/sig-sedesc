@@ -15,7 +15,7 @@ class Almoxarifado::RetiradaDecorator < ApplicationDecorator
     links = []
     links << link_to(comprovante_almoxarifado_retirada_path(object), class: 'btn btn-warning btn-sm', remote: true,  data: { toggle: "modal", target: "#modal-entrada"}) do 
       fa_icon('file', text: 'Comprovante')
-    end
+    end if policy(object).comprovante?
     links << link_to(almoxarifado_retirada_path(object), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Certeza?" }) do 
       fa_icon('trash', text: 'Remover')
     end if policy(object).destroy?

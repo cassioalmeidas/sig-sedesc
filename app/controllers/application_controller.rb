@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "Você não está autorizado(a) a executar essa ação."
       redirect_to(request.referrer || root_path)
     end
+
+    def pundit_user
+      current_usuario
+    end
 end

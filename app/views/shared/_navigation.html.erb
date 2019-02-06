@@ -18,8 +18,10 @@
           <%= link_to 'Gestão de retiradas', almoxarifado_retiradas_path, class: 'dropdown-item' %>
           <%= dropdown_divider %>
           <%= link_to 'Gestão de setores', almoxarifado_setores_path, class: 'dropdown-item' %>
-          <%= dropdown_divider %>
-          <%= link_to 'Relatórios', almoxarifado_relatorios_path, class: 'dropdown-item' %>
+          <% if policy([:almoxarifado, :relatorio]).index? %>
+            <%= dropdown_divider %>
+            <%= link_to 'Relatórios', almoxarifado_relatorios_path, class: 'dropdown-item' %>
+          <% end -%>
         </div>
       </li>
       <%= nav_link "Usuários", "#" %>

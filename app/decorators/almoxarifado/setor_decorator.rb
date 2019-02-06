@@ -15,10 +15,10 @@ class Almoxarifado::SetorDecorator < ApplicationDecorator
     links = []
     links << link_to(edit_almoxarifado_setor_path(object), class: 'btn btn-info btn-sm', remote: true,  data: { toggle: "modal", target: "#modal-setor"}) do 
       fa_icon('pencil-square-o', text: 'Editar')
-    end 
+    end if policy(object).edit?
     links << link_to(almoxarifado_setor_path(object), class: 'btn btn-danger btn-sm', data: { confirm: "Você tem certeza?" }, method: :delete) do 
       fa_icon('trash', text: 'Remover')
-    end
+    end if policy(object).destroy?
     safe_join(links, ' ')
   end  
 

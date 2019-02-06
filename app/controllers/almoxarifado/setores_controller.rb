@@ -3,6 +3,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
 
   def index
     @almoxarifado_setores = Almoxarifado::Setor.ordenado
+    authorize Almoxarifado::Setor
     respond_to do |format|
       format.html 
       format.json { render json: Almoxarifado::SetorDatatable.new(params) }
@@ -11,6 +12,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
 
   def new
     @almoxarifado_setor = Almoxarifado::Setor.new
+    authorize @almoxarifado_setor
     respond_to do |format|
       format.html
       format.js
@@ -18,6 +20,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
   end
 
   def edit
+    authorize @almoxarifado_setor
     respond_to do |format|
       format.html 
       format.js
@@ -26,7 +29,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
 
   def create
     @almoxarifado_setor = Almoxarifado::Setor.new(almoxarifado_setor_params)
-
+    authorize @almoxarifado_setor
     respond_to do |format|
       if @almoxarifado_setor.save
         format.html { redirect_to @almoxarifado_setor, notice: 'Setor criado com sucesso.' }
@@ -41,6 +44,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
   end
 
   def update
+    authorize @almoxarifado_setor
     respond_to do |format|
       if @almoxarifado_setor.update(almoxarifado_setor_params)
         format.html { redirect_to almoxarifado_setores_path, notice: 'Setor atualizado com sucesso.' }
@@ -53,6 +57,7 @@ class Almoxarifado::SetoresController < Almoxarifado::AlmoxarifadoController
   end
 
   def destroy
+    authorize @almoxarifado_setor
     @almoxarifado_setor.destroy
     respond_to do |format|
       format.html { redirect_to almoxarifado_setores_url, notice: 'Setor excluído com sucesso.' }

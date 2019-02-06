@@ -15,11 +15,13 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # GET /almoxarifado/entradas/1
   # GET /almoxarifado/entradas/1.json
   def show
+    authorize @almoxarifado_entrada
   end
 
   # GET /almoxarifado/entradas/new
   def new
     @almoxarifado_entrada = Almoxarifado::Entrada.new
+    authorize @almoxarifado_entrada
     @almoxarifado_material = Almoxarifado::Material.find(params[:almoxarifado_materiais_id])
   end
 
@@ -31,6 +33,7 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
   # POST /almoxarifado/entradas.json
   def create
     @almoxarifado_entrada = Almoxarifado::Entrada.new(almoxarifado_entrada_params)
+    authorize @almoxarifado_entrada
     respond_to do |format|
       if @almoxarifado_entrada.save
         format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada criada com sucesso.' }
