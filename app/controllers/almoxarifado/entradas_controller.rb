@@ -27,6 +27,11 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
 
   # GET /almoxarifado/entradas/1/edit
   def edit
+    authorize @almoxarifado_entrada
+    @almoxarifado_material = @almoxarifado_entrada.almoxarifado_materiais
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /almoxarifado/entradas
@@ -52,8 +57,9 @@ class Almoxarifado::EntradasController < Almoxarifado::AlmoxarifadoController
     authorize @almoxarifado_entrada
     respond_to do |format|
       if @almoxarifado_entrada.update(almoxarifado_entrada_params)
-        format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada was successfully updated.' }
+        format.html { redirect_to @almoxarifado_entrada, notice: 'Entrada atualizada com sucesso' }
         format.json { render :show, status: :ok, location: @almoxarifado_entrada }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @almoxarifado_entrada.errors, status: :unprocessable_entity }

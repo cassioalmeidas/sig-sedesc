@@ -13,7 +13,7 @@ class Almoxarifado::EntradaDecorator < ApplicationDecorator
 
   def acoes
     links = []
-    links << link_to(edit_almoxarifado_entrada_path(object), class: 'btn btn-primary btn-sm' ) do 
+    links << link_to(edit_almoxarifado_entrada_path(object), class: 'btn btn-primary btn-sm', remote: true, data: { toggle: 'modal', target: '#modal-entrada'} ) do 
       fa_icon('pencil-square-o', text: 'Editar')
     end if policy(object).update?
 
