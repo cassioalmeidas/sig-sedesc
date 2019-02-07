@@ -8,7 +8,7 @@ class Almoxarifado::MaterialDatatable < AjaxDatatablesRails::ActiveRecord
       quantidade: { source: "Almoxarifado::Material.quantidade", cond: :eq, searchable: false },
       entradas: { source: "Almoxarifado::Material.entradas", cond: :eq, searchable: false, orderable: false },
       retiradas: { source: "Almoxarifado::Material.retiradas", cond: :eq, searchable: false, orderable: false },
-      acoes: { source: "acoes", orderable: false, searchable: false, orderable: false }
+      acoes: { source: "acoes", orderable: false, searchable: false }
     }
   end
 

@@ -16,4 +16,8 @@ class Almoxarifado::BasePolicy < ApplicationPolicy
   def update?
     @usuario.has_any_role? :sysadmin, :admin
   end
+
+  def create?
+    @usuario.has_any_role? :sysadmin, :admin
+  end
 end

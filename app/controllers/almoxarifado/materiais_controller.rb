@@ -70,10 +70,12 @@ class Almoxarifado::MateriaisController < Almoxarifado::AlmoxarifadoController
   # DELETE /almoxarifado/materiais/1.json
   def destroy
     authorize @almoxarifado_material
-    @almoxarifado_material.destroy
     respond_to do |format|
-      format.html { redirect_to almoxarifado_materiais_url, notice: 'Material excluído com sucesso.' }
-      format.json { head :no_content }
+      if @almoxarifado_material.destroy
+        format.html { redirect_to almoxarifado_materiais_url, notice: 'Material excluído com sucesso.' }
+      else
+        format.html { redirect_to almoxarifado_materiais_url, alert: 'Não foi possível apagar material, material possui entradas/retiradas' }
+      end
     end
   end
 

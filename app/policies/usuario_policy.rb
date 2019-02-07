@@ -24,4 +24,8 @@ class UsuarioPolicy < ApplicationPolicy
   def destroy?
     comum
   end
+
+  def mudar_senha?  
+    true
+  end
 end
