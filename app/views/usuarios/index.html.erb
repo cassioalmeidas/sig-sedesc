@@ -1,0 +1,21 @@
+<% content_for(:title) do %>
+	Usuários 
+  <% if policy(Usuario).new? %>
+    <%= link_to 'Adicionar usuário', new_usuario_path, class: 'btn btn-info btn-lg float-right', remote: true, data: { toggle: 'modal', target: '#modal-usuario'} %>
+  <% end -%>  
+<% end -%>
+
+<table id="usuarios-datatable" class="table table-hover" data-source="<%= usuarios_path(format: :json) %>">
+	<thead>
+		<tr>
+			<th data-data="login">Login</th>
+      <th data-data="email">Email</th>
+      <th data-data="papeis">Papéis</th>
+      <th data-data="criado_em">Criado em</th>
+      <th data-data="acoes">Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<div id="modal-window"></div>

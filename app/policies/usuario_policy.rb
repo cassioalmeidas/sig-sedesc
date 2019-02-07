@@ -6,7 +6,7 @@ class UsuarioPolicy < ApplicationPolicy
   end
 
   def comum
-  	@usuario.has_any_role? :sysadmin, :admin
+  	@usuario.has_any_role? :sysadmin
   end
 
   def index?
@@ -19,5 +19,9 @@ class UsuarioPolicy < ApplicationPolicy
 
   def update?
   	comum
+  end
+
+  def destroy?
+    comum
   end
 end

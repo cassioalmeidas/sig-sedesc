@@ -1,0 +1,5 @@
+$('#modal-usuario').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+$("#modal-window").html("<%= j render('usuarios/form_modal') %>")
+$("#modal-usuario").modal();

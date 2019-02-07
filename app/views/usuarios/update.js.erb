@@ -1,0 +1,5 @@
+$("#modal-usuario").modal("hide");
+$("body").removeClass("#modal-usuario");
+$('.modal-backdrop').remove();
+$('#usuarios-datatable').DataTable().ajax.reload();
+toastr.success('Usuário atualizado com sucesso');
