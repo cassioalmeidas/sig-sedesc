@@ -8,6 +8,7 @@
 
 
 # Papéis de usuários
+puts "Criando papéis..."
 Papel.find_or_create_by(name: 'sysadmin')
 Papel.find_or_create_by(name: 'admin')
 Papel.find_or_create_by(name: 'operador')
