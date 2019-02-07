@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root to: 'inicial#index'
   devise_for :usuarios
-  
-  resources :usuarios
+
+  resources :usuarios do 
+    collection do 
+      get :mudar_senha
+      patch :update_password
+    end
+  end
 
   namespace :almoxarifado do
     resources :materiais

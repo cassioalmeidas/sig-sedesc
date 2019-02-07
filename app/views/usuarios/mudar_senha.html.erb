@@ -1,0 +1,9 @@
+<% content_for(:title) do %>
+  Mudar senha
+<% end -%>
+<%= simple_form_for(@usuario, :url => { :action => "update_password" } ) do |f| %>
+  <%= f.input :current_password, label: 'Senha atual', hint: 'É necessária a sua antiga senha para atualizarmos suas informações' %>
+  <%= f.input :password, as: :password, label: "Senha" %><br />
+  <%= f.input :password_confirmation, as: :password, label: "Confirme sua senha" %>
+  <%= f.submit "Salvar", class: 'btn btn-primary' %>
+<% end %>

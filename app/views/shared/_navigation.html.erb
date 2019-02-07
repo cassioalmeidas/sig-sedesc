@@ -39,7 +39,7 @@
           Meu usuário
           </a>
           <div class="dropdown-menu" aria-labelledby="navDropDownLink">
-            <%= link_to 'Mudar senha', '#', class: 'dropdown-item'  %>
+            <%= link_to 'Mudar senha', mudar_senha_usuarios_path, class: 'dropdown-item'  %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Sair do sistema', destroy_usuario_session_path, method: :delete, class: 'dropdown-item'  %>
           </div>

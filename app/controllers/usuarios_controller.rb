@@ -25,6 +25,22 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def mudar_senha
+    @usuario = current_usuario
+  end
+
+  def update_password
+    @usuario = current_usuario
+    usuario_params.except(:username, :email, :role_ids)
+    if @usuario.update_with_password(usuario_params)
+      # Sign in the user by passing validation in case their password changed
+      bypass_sign_in(@usuario)
+      redirect_to(root_path, notice: 'Sua senha foi atualizada com sucesso.')
+    else
+      render :mudar_senha
+    end
+  end
+
   def create
     @usuario = Usuario.new(usuario_params)
     authorize @usuario
@@ -70,6 +86,6 @@ class UsuariosController < ApplicationController
     end
 
     def usuario_params
-      params.require(:usuario).permit(:username, :email, :password, :password_confirmation, role_ids: [])
+      params.require(:usuario).permit(:username, :email, :password, :current_password, :password_confirmation, role_ids: [])
     end
 end
